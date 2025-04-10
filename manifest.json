@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Web Weaver AI (MVP)",
+  "version": "0.1.0",
+  "description": "Summarizes content across selected browser tabs.",
+  "permissions": [
+    "tabs",      // To query tab information
+    "scripting", // To inject scripts for content extraction
+    "storage"    // Optional: To save API keys or settings
+    // Add "sidePanel" here if using side panel UI later
+  ],
+  "host_permissions": [
+     // Example: If using OpenAI API later
+     // "*://api.openai.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js" // The brain of the extension
+  },
+  "action": {
+    "default_popup": "popup.html", // The HTML file for the popup UI
+    "default_icon": {             // Optional: Icons for the toolbar
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": { // Optional: Icons for extension management page
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+  }
+}

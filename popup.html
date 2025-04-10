@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web Weaver AI</title>
+  <link rel="stylesheet" href="popup.css"> <!-- Optional CSS styling -->
+  <style>
+    /* Basic inline styles for quick layout */
+    body {
+      width: 350px; /* Set a reasonable width for the popup */
+      font-family: sans-serif;
+      padding: 10px;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0 0 10px 0;
+      max-height: 200px; /* Limit height and allow scrolling */
+      overflow-y: auto;
+      border: 1px solid #ccc; /* Visual separation */
+    }
+    li {
+      padding: 5px;
+      border-bottom: 1px solid #eee;
+      white-space: nowrap; /* Prevent long titles from wrapping awkwardly */
+      overflow: hidden;
+      text-overflow: ellipsis; /* Show '...' for overflowed titles */
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+    label {
+        margin-left: 5px;
+        /* Make label clickable for the checkbox */
+        cursor: pointer;
+        /* Prevent label text selection when clicking */
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+         /* Ensure label uses available width */
+        display: inline-block;
+        vertical-align: middle; /* Align label text with checkbox */
+        width: calc(100% - 25px); /* Adjust width to account for checkbox */
+
+    }
+     input[type="checkbox"] {
+      vertical-align: middle; /* Align checkbox with text */
+    }
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+      display: block; /* Make button take full width */
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    #results {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+      min-height: 50px;
+      white-space: pre-wrap; /* Preserve line breaks in the output */
+      word-wrap: break-word; /* Wrap long words */
+      font-size: 0.9em;
+    }
+     /* --- Optional: Add a section for user prompt later ---
+     textarea {
+        width: calc(100% - 10px);
+        margin-bottom: 10px;
+        padding: 5px;
+        min-height: 40px;
+     }
+     */
+  </style>
+</head>
+<body>
+
+  <h3>Select Tabs to Analyze:</h3>
+  <ul id="tabList">
+    <!-- Tab list items will be added here by popup.js -->
+    <li>Loading tabs...</li>
+  </ul>
+
+  <!-- Optional: Add a textarea for user prompts later
+  <textarea id="userPrompt" placeholder="Optional: Enter your specific question (e.g., 'Summarize these', 'Compare X and Y')"></textarea>
+  -->
+
+  <button id="analyzeButton">Analyze Selected Tabs</button>
+
+  <h4>Results:</h4>
+  <div id="results">
+    Select tabs and click Analyze.
+  </div>
+
+  <script src="popup.js"></script> <!-- Link to your popup JavaScript -->
+</body>
+</html>
